@@ -13,3 +13,12 @@ export default {
 };
 </script>
 
+<style>
+#app{
+  background: url('./assets/sailors.jpg');
+  background-position:center;
+  background-size:cover;
+  background-repeat: no-repeat;
+  height:100vh;
+}
+</style>
