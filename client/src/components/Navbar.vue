@@ -42,6 +42,9 @@ export default {
 </script>
 
 <style scoped>
+    .navbar{
+        margin-bottom: 5em;
+    }
     .links{
         text-decoration: none;
         color:#fff;
