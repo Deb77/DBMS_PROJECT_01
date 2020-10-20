@@ -15,10 +15,10 @@ export default {
 
 <style>
 #app{
-  background: url('./assets/sailors.jpg');
-  background-position:center;
-  background-size:cover;
+  background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),url('./assets/sailors.jpg');
+  background-position: center;
+  background-size: cover;
   background-repeat: no-repeat;
-  height:100vh;
+  height: 100vh;
 }
 </style>
