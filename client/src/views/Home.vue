@@ -2,10 +2,13 @@
   <div>
     <p class="heading">Details</p>
     <b-container fluid="md">
-      <b-table sticky-header hover :items="sailors"></b-table>
+      <b-table
+        @row-clicked="onRowClick" 
+        sticky-header 
+        hover :items="sailors"
+      />
     </b-container>
   </div>
- 
 </template>
 
 <script>
@@ -15,6 +18,11 @@ export default {
   data(){
     return {
       sailors: [],
+    }
+  },
+  methods:{
+    onRowClick(row){
+      this.$router.push({name:'Update', params:{ ID: row.SID }})
     }
   },
   mounted(){

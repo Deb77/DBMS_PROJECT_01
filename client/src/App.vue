@@ -28,4 +28,15 @@ export default {
   text-align: center;
   font-weight: 600;
 }
+.form{
+  max-width: 500px;
+  margin:0 auto;
+  background: rgba(255,255,255,0.7);
+  border-radius: 5px;
+  box-shadow: 0 0 5px;
+  padding: 10px;
+  }
+.btn-danger{
+  margin-left: 10px;
+}
 </style>
