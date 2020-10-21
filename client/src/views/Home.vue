@@ -7,6 +7,9 @@
         sticky-header 
         hover :items="sailors"
       />
+      <b-alert class="text-center" show>
+        Click on a Row To Update IT
+      </b-alert>
     </b-container>
   </div>
 </template>
