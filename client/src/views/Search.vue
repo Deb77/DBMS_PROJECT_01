@@ -77,5 +77,6 @@ export default {
 <style scoped>
 .card{
   margin: 2% auto;
+  max-width: 25em;
 }
 </style>

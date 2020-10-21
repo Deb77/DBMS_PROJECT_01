@@ -8,20 +8,22 @@
     <b-collapse id="nav-collapse" is-nav>
       <b-navbar-nav class="ml-auto">
         <b-nav-item>
+            <router-link class="links" to="/">
             <HomeIcon/>
-            <router-link class="links" to="/">Home</router-link>
+            Home
+            </router-link>
         </b-nav-item>
         <b-nav-item>
+            <router-link class="links" to="/add">
             <AddIcon/>
-            <router-link class="links" to="/add">Add</router-link>
+            Add
+            </router-link>
         </b-nav-item>
         <b-nav-item>
-            <UpdateIcon/>
-            <router-link class="links" to="/update">Update</router-link>
-        </b-nav-item>
-        <b-nav-item>
-            <DeleteIcon/>
-            <router-link class="links" to="/delete">Delete</router-link>
+            <router-link class="links" to="/search">
+            <SearchIcon/>
+            Search
+            </router-link>
         </b-nav-item>
       </b-navbar-nav>
     </b-collapse>
@@ -32,12 +34,11 @@
 <script>
 import HomeIcon from 'vue-material-design-icons/Home.vue';
 import AddIcon from 'vue-material-design-icons/Plus.vue';
-import UpdateIcon from 'vue-material-design-icons/Update.vue';
-import DeleteIcon from 'vue-material-design-icons/Delete.vue';
+import SearchIcon from 'vue-material-design-icons/FindReplace.vue';
 
 export default {
     name: "Navbar",
-    components: { HomeIcon, AddIcon, UpdateIcon, DeleteIcon }
+    components: { HomeIcon, AddIcon, SearchIcon }
 }
 </script>
 
@@ -48,8 +49,6 @@ export default {
     .links{
         text-decoration: none;
         color:#fff;
-    }
-    .nav-link{
         display: flex;
         align-items: center;
     }

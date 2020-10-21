@@ -3,7 +3,7 @@ import VueRouter from 'vue-router';
 import HomePage from '../views/Home';
 import AddPage from '../views/Add';
 import UpdatePage from '../views/Update';
-import DeletePage from '../views/Delete';
+import SearchPage from '../views/Search';
 
 Vue.use(VueRouter);
 
@@ -24,9 +24,9 @@ const routes = [
         component: UpdatePage,
     },
     {
-        path: '/delete',
-        name: 'Delete',
-        component: DeletePage
+        path: '/search',
+        name: 'Search',
+        component: SearchPage
     }
 ]
 
