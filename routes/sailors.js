@@ -4,10 +4,10 @@ const db = require('../db');
 router.post("/", (req, res) => {
     db.run("INSERT INTO sailors (SID, SNAME, RATING, AGE) VALUES (?,?,?,?)",
         [req.body.SID, req.body.SNAME, req.body.RATING, req.body.AGE],
-       function (err, result) {
-           if (err) {
-               res.status(400).json({ "error": err.message })
-               return;
+       function (err) {
+         if (err) {
+            res.json("The Sailor ID has already been used by another Sailor");
+             return;
            }
            res.status(201).json("Sailor added successfully");
        });

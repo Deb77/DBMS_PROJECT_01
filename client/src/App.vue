@@ -21,4 +21,11 @@ export default {
   background-repeat: no-repeat;
   height: 100vh;
 }
+.heading{
+  font-size: 2em;
+  font-family: cursive;
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: 600;
+}
 </style>
