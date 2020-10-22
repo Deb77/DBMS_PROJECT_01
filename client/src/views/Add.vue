@@ -12,7 +12,11 @@
           v-model="form.SID"
           type="number"
           required
-          placeholder="Enter Sailor's ID"/>
+          placeholder="Enter Sailor's ID"
+          min="0"
+          max="9999"  
+        >
+        </b-form-input>
       </b-form-group>
       <b-form-group
         id="input-group-2"
@@ -22,9 +26,10 @@
         <b-form-input
           id="Sname"
           v-model="form.SNAME"
-          type="text"
+          maxlength="30"
           required
-          placeholder="Enter Sailor's Name"/>
+          placeholder="Enter Sailor's Name">
+        </b-form-input>
       </b-form-group>
       <b-form-group id="input-group-2" label="Rating:" label-for="Rating">
         <b-form-select
@@ -38,10 +43,13 @@
         <b-form-input
           id="Age"
           v-model="form.AGE"
-          type="number"
-          required
           placeholder="Enter Sailor's Age"
-        />
+          type="number"
+          min="18"
+          max="65"
+          required
+        >
+        </b-form-input>
       </b-form-group>
       <b-button type="submit" variant="primary">Submit</b-button>
       <b-button type="reset" variant="danger">Reset</b-button>
@@ -68,6 +76,7 @@ export default {
   },
   methods: {
     onSubmit(e){
+      console.log(this.idState)
       e.preventDefault();
       const data = { 
         SID: this.form.SID, 
@@ -86,6 +95,15 @@ export default {
        .catch( err => alert(err));
       
     }
+  },
+  computed: {
+    idState(){
+      return this.form.SID > 0 && this.form.SID < 9999
+    },
+    snameState(){
+      return this.form.SNAME.length > 0 && this.form.SNAME.length <30
+    }
+    
   }
 }
 </script>

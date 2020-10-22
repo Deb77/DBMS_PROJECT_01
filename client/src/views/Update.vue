@@ -12,7 +12,10 @@
           v-model="form.SID"
           type="number"
           disabled
-        />
+          min="0"
+          max="9999"
+        >
+        </b-form-input>
       </b-form-group>
       <b-form-group
         id="input-group-2"
@@ -24,7 +27,9 @@
           v-model="form.SNAME"
           type="text"
           required
-          placeholder="Enter Sailor's Name"/>
+          placeholder="Enter Sailor's Name"
+          maxlength="30">
+        </b-form-input>
       </b-form-group>
       <b-form-group id="input-group-2" label="Rating:" label-for="Rating">
         <b-form-select
@@ -41,12 +46,17 @@
           type="number"
           required
           placeholder="Enter Sailor's Age"
-        />
+          min="18"
+          max="65"
+        >
+        </b-form-input>
       </b-form-group>
       <b-button type="submit" variant="primary">Submit</b-button>
     </b-form>
     <div v-else>
-      <b-alert class="text-center" show variant="danger">Please Select A Sailor You Want To Change/Update!!</b-alert>
+      <b-alert class="text-center" show variant="danger">
+        Please Select A Sailor You Want To Change/Update!!
+      </b-alert>
     </div>
   </b-container>
 </template>
@@ -76,7 +86,6 @@ export default {
     }
   },
   mounted(){
-    console.log(this.SID)
     axios.get(`http://localhost:5000/sailors/${this.SID}`)
     .then( res => this.form = res.data)
     .catch( err => console.log(err))

@@ -5,10 +5,10 @@ const db = new sqlite3.Database("./sailors_database.db", (err) => {
     } else {
       db.run(
         "CREATE TABLE sailors( \
-              SID INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,\
+              SID NINTEGER(4) PRIMARY KEY AUTOINCREMENT NOT NULL,\
               SNAME NVARCHAR(30)  NOT NULL,\
               RATING NINTEGER  NOT NULL,\
-              AGE NINTEGER\
+              AGE NINTEGER(2) NOT NULL\
           )",
         (err) => {
           if (err) {
