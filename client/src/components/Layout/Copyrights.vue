@@ -7,5 +7,6 @@
         margin:1em;
         display: flex;
         justify-content: center;
+        font-weight: 600;
     }
 </style>

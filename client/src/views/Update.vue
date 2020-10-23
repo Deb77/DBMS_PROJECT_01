@@ -3,9 +3,9 @@
     <p class="heading">Update Details</p>
     <b-form v-if="SID" class="form" @submit="onSubmit">
       <b-form-group
-        id="input-group-1"
+        id="input-group-sid"
         label="Sailor's ID"
-        label-for="SID"
+        label-for="sid"
       >
         <b-form-input
           id="SID"
@@ -18,20 +18,20 @@
         </b-form-input>
       </b-form-group>
       <b-form-group
-        id="input-group-2"
+        id="input-group-sname"
         label="Sailor's Name"
         label-for="Sname"
       >
         <b-form-input
           id="Sname"
           v-model="form.SNAME"
-          type="text"
+          maxlength="30"
           required
           placeholder="Enter Sailor's Name"
-          maxlength="30">
+        >
         </b-form-input>
       </b-form-group>
-      <b-form-group id="input-group-2" label="Rating:" label-for="Rating">
+      <b-form-group id="input-group-rating" label="Rating:" label-for="Rating">
         <b-form-select
           id="Rating"
           v-model="form.RATING"
@@ -39,7 +39,7 @@
           required
         />
       </b-form-group>
-      <b-form-group id="input-group-3" label="Age:" label-for="Age">
+      <b-form-group id="input-group-age" label="Age:" label-for="Age">
         <b-form-input
           id="Age"
           v-model="form.AGE"
@@ -62,13 +62,13 @@
 </template>
 
 <script>
-import axios from 'axios';
+import axios from "axios";
 export default {
   data(){
     return{
       SID: this.$route.params.ID,
       form: {},
-      ratings: [{text: 'Select One', value: null}, 
+      ratings: [ 
         1, 2, 3, 4, 5, 6, 7, 8, 9, 10
       ]
     }
@@ -83,6 +83,7 @@ export default {
       }
       axios.put(`http://localhost:5000/sailors/${this.SID}`,data)
       .then(res => alert(res.data))
+      .catch(err => console.log(err))
     }
   },
   mounted(){

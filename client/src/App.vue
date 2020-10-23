@@ -7,8 +7,8 @@
 </template>
 
 <script>
-import Navbar from './components/Navbar';
-import Copyrights from './components/Copyrights';
+import Navbar from './components/Layout/Navbar';
+import Copyrights from './components/Layout/Copyrights';
 export default {
   name: "App",
   components: { Navbar, Copyrights }

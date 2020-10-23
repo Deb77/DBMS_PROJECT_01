@@ -3,13 +3,13 @@
     <p class="heading">Add Details</p>
     <b-form class="form" @submit="onSubmit">
       <b-form-group
-        id="input-group-1"
+        id="input-group-sid"
         label="Sailor's ID"
         label-for="SID"
       >
         <b-form-input
           id="SID"
-          v-model="form.SID"
+          v-model="form.SID" 
           type="number"
           required
           placeholder="Enter Sailor's ID"
@@ -19,7 +19,7 @@
         </b-form-input>
       </b-form-group>
       <b-form-group
-        id="input-group-2"
+        id="input-group-sname"
         label="Sailor's Name"
         label-for="Sname"
       >
@@ -31,7 +31,7 @@
           placeholder="Enter Sailor's Name">
         </b-form-input>
       </b-form-group>
-      <b-form-group id="input-group-2" label="Rating:" label-for="Rating">
+      <b-form-group id="input-group-rating" label="Rating:" label-for="Rating">
         <b-form-select
           id="Rating"
           v-model="form.RATING"
@@ -39,7 +39,7 @@
           required
         />
       </b-form-group>
-      <b-form-group id="input-group-3" label="Age:" label-for="Age">
+      <b-form-group id="input-group-age" label="Age:" label-for="Age">
         <b-form-input
           id="Age"
           v-model="form.AGE"
@@ -58,33 +58,31 @@
 </template>
 
 <script>
-import axios from 'axios';
+import axios from "axios";
 export default {
-  name:'Add',
+  name:"Add",
   data(){
     return {
       form: {
-        SID:'',
-        SNAME: '',
-        RATING: '',
-        AGE: '',
+        SID:"",
+        SNAME: "",
+        RATING: "",
+        AGE: "",
       },
-      ratings: [{text: 'Select One', value: null}, 
+      ratings: [ 
         1, 2, 3, 4, 5, 6, 7, 8, 9, 10
       ]
     }
   },
   methods: {
     onSubmit(e){
-      console.log(this.idState)
       e.preventDefault();
-      const data = { 
-        SID: this.form.SID, 
+      axios.post("http://localhost:5000/sailors/",{
+        SID: this.form.SID,
         SNAME: this.form.SNAME, 
         RATING:this.form.RATING, 
         AGE:this.form.AGE, 
-      }
-      axios.post("http://localhost:5000/sailors/",data)
+      })
        .then( (res) => {
          alert(res.data)
           this.form.SID = "";
@@ -95,15 +93,6 @@ export default {
        .catch( err => alert(err));
       
     }
-  },
-  computed: {
-    idState(){
-      return this.form.SID > 0 && this.form.SID < 9999
-    },
-    snameState(){
-      return this.form.SNAME.length > 0 && this.form.SNAME.length <30
-    }
-    
   }
 }
 </script>

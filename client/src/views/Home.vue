@@ -8,14 +8,14 @@
         hover :items="sailors"
       />
       <b-alert class="text-center" show>
-        Click on a Row To Update IT
+        Click On A Row To Update It
       </b-alert>
     </b-container>
   </div>
 </template>
 
 <script>
-import axios from 'axios';
+import axios from "axios";
 
 export default {
   data(){

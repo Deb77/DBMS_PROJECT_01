@@ -3,7 +3,7 @@
     <p class="heading">Find Sailor</p>
     <b-form class="form" @submit="onSubmit">
       <b-form-group
-        id="input-group-1"
+        id="input-group-sid"
         label="Sailor's ID"
         label-for="SID"
       >
@@ -34,9 +34,9 @@
 </template>
 
 <script>
-import axios from 'axios';
+import axios from "axios";
 export default {
-  name:'Update',
+  name:"Update",
   data(){
     return{
       SID: "",
